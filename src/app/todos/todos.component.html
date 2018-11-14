@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<div class="container">
+  <div class="row">
+    <h2 class="col-12">Todo List</h2>
+    <div class="wrap">
+
+    <input (keyup.enter)="addTodo(todoText.value)" type="text" #todoText>
+      <button (click)="addTodo(todoText.value)" class="btn btn-success">Add Todo</button>
+    </div>
+    <ul class="col-12">
+      <li *ngFor="let thing of todoItems | async">
+        <!-- <button class="btn btn-light" (click)="todoCompleted(thing.key, !thing.completed)">
+          <i *ngIf="!thing.completed" class="fa fa-times" aria-hidden="true"></i>
+          <i *ngIf="thing.completed" class="check fa fa-check" aria-hidden="true"></i>
+        </button> 
+        {{ thing.task }}  -->
+
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+              <h3 class="card-title"><button class="btn btn-light" (click)="todoCompleted(thing.key, !thing.completed)">
+                  <i *ngIf="!thing.completed" class="fa fa-times" aria-hidden="true"></i>
+                  <i *ngIf="thing.completed" class="check fa fa-check" aria-hidden="true"></i>
+                </button>
+                  {{ thing.task }}</h3>
+              <button (click)="removeTodo(thing.key)" class="btn btn-danger">Remove</button>
+      <button id="updateBtn" (click)="thing.update = !thing.update" class="btn btn-primary">Update</button>
+      <span *ngIf="thing.update">
+        <input id="updateI" (keyup.enter)="updateTodo(thing.key, thing.updateText)" (keyup.enter)="thing.update = !thing.update" type="text" [(ngModel)]="thing.updateText">
+        <button (click)="updateTodo(thing.key, thing.updateText)" (click)="thing.update = !thing.update">
+            <i class="check fa fa-check" aria-hidden="true"></i>
+        </button>
+      </span>
+            </div>
+          </div>
+
+      <!-- <button (click)="removeTodo(thing.key)" class="btn btn-danger">Remove</button>
+      <button (click)="thing.update = !thing.update" class="btn btn-primary">Update</button>
+      <span *ngIf="thing.update">
+        <input type="text" [(ngModel)]="thing.updateText">
+        <button (click)="updateTodo(thing.key, thing.updateText)" (click)="thing.update = !thing.update">
+            <i class="check fa fa-check" aria-hidden="true"></i>
+        </button>
+      </span> -->
+      </li>  
+    </ul>
+  </div>
+</div>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

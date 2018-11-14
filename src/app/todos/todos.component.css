@@ -1,0 +1,51 @@
+
+.container{
+    margin: 0px auto;
+    text-align: center;
+}
+
+.row {
+    text-align: center;
+}
+.wrap {
+    display: block;
+    margin: 0px auto;
+}
+h2{
+    color: rgb(190, 13, 0);
+    margin-top: 30px;
+    font-family: "GillSans-UltraBold";
+    text-decoration: underline;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    font-size: 20px;
+    color: rgb(34, 6, 155);
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.check{
+    color: green;
+}
+
+#updateBtn{
+    margin-left: 10px;
+}
+
+#updateI{
+    margin-top: 10px;
+}
+
+.card{
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgba(199, 151, 88, .5);
+    margin-top: 20px;
+
+}
+
