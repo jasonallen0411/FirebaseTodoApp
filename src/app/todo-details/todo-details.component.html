@@ -1,0 +1,14 @@
+  <div id="detailBtns">
+    <button (click)="removeTodo(todo.key)" class="btn btn-danger">Remove</button>
+      <input id="updateI" (keyup.enter)="updateTodo(todo.key, todo.updateText)" (keyup.enter)="todo.update = !todo.update" type="text" [(ngModel)]="todo.updateText">
+        <button class="btn btn-primary" (click)="updateTodo(todo.key, todo.updateText)" (click)="todo.update = !todo.update">Update
+         </button>
+  </div>       
+
+ <div id="detailedList" class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h1><span>Task:</span> {{ todo.task }}</h1>
+      <h2><span>Completed:</span> {{ todo.completed }}</h2>
+      <h2><span>User:</span> {{ todo.user }}</h2>
+    </div>
+</div>

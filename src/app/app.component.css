@@ -4,3 +4,7 @@ h1{
     font-family: "GillSans-UltraBold";
 
 }
+
+#nav{
+    z-index: 100;
+}

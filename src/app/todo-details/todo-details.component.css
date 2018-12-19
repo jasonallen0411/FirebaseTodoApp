@@ -1,0 +1,22 @@
+#detailBtns{
+    margin: 0px auto;
+    text-align: center;
+}
+
+#detailedList{
+    text-align:center;
+    color: rgb(34, 6, 155);
+    font-weight: bold;
+}
+
+.card{
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgba(199, 151, 88, .5);
+    margin-top: 20px;
+
+}
+
+span{
+    color: rgb(190, 13, 0); 
+}

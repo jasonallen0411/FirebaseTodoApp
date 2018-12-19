@@ -1,0 +1,29 @@
+<h1 id="welcomeEmail" *ngIf="authguard.user | async">Welcome {{ (authguard.user | async)?.email }}! <button class="btn btn-danger" (click)="logout()" *ngIf="authguard.user | async">
+    Logout
+  </button></h1>
+
+  <div class="container" *ngIf="!(authguard.user | async)">
+      <div class="row" *ngIf="message">
+        <div class="alert alert-light" role="alert">
+          {{ message }}
+        </div>
+      </div>
+  </div>
+
+<div class="container" *ngIf="!(authguard.user | async)">
+  <div class="row">
+      <form>
+          <div class="form-group">
+            <label id="emailLabel" for="exampleInputEmail1">Email Address</label>
+            <input [(ngModel)]="email" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label id="passwordLabel" for="exampleInputPassword1">Password</label>
+            <input [(ngModel)]="password" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button class="btn btn-primary" (click)="register()">Register</button>
+          <button class="btn btn-light" (click)="login()">Log-in</button>
+        </form>
+  </div>
+</div>
+

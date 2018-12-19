@@ -1,0 +1,27 @@
+#welcomeEmail{
+    color: rgb(190, 13, 0);
+    text-align: center;
+}
+
+#emailLabel{
+    font-size: 30px;
+    color: rgb(190, 13, 0); 
+    font-family: "GillSans-UltraBold";
+}
+
+#passwordLabel{
+    font-size: 30px;
+    color: rgb(190, 13, 0);
+    font-family: "GillSans-UltraBold";
+}
+
+.container{
+    text-align: center;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+form{
+    text-align: center;
+    margin: 0px auto;
+}

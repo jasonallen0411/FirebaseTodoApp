@@ -3,6 +3,10 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { GetTodosServiceService } from '../get-todos-service.service';
+import { getTestBed } from '@angular/core/testing';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'app-todos',
@@ -12,39 +16,35 @@ import { map } from 'rxjs/operators';
 export class TodosComponent implements OnInit {
   todoItems:Observable<any[]>;
   db:any;
+  gt;
 
-  todoCompleted(k,c){
-    this.db.list('/todos').update(k, { completed: c });
-  }
+addTodo(taskInput){
+  this.gt.addTodo(taskInput)
+}
 
+todoCompleted(k,c){
+  this.gt.todoCompleted(k,c);
+}
 
-  addTodo(taskInput){
-    this.db.list('/todos').push({"completed":false, "task":taskInput,"user":"Test User"});
-
-  }
   
-  removeTodo(k){
-    this.db.list('/todos').remove(k);
-  }
+  
+  
 
-  updateTodo(k,v){
-    this.db.list('/todos').update(k, { task: v });
-  }
+  constructor(db: AngularFireDatabase, gt:GetTodosServiceService, afa:AngularFireAuth) {
 
-  constructor(db: AngularFireDatabase) {
-
-    this.todoItems = db.list('/todos').snapshotChanges().pipe(
-      map(changes => 
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val(), update:false, updateText:"" }))
-      )
-    );
-
+    this.todoItems = gt.todoItems;
+      this.gt = gt;
       this.db = db;
 
-      // db.list('/todos').snapshotChanges().subscribe( tdItem => {
-      //   this.todoItems = tdItem;
-      //   console.log(tdItem[0].key);
-      //   });
+      afa.auth.onAuthStateChanged(user =>{
+        if(user){
+          console.log(user);
+          this.todoItems = db.list("/users/" + user.uid).snapshotChanges().pipe(
+            map(changes =>
+              changes.map(c => ({ key: c.payload.key, ...c.payload.val(), updateText:""})))
+          )
+        }
+      });
       }
 
   ngOnInit() {

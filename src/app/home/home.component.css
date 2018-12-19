@@ -1,0 +1,33 @@
+#tablet{
+    text-align: center;
+    margin: 0px auto;
+    width: 800px;
+    height: 600px;
+}
+
+#card{
+    margin: 0px auto;
+    text-align: center;
+    width: 800px;
+    height: 600px;
+    background-color: rgba(23, 23, 209, 0);
+}
+
+.card-img-overlay{
+    text-align: center;
+    padding: 450px;
+}
+
+.card-title{
+    color: rgb(255, 145, 0);
+    font-family: "GillSans-UltraBold";
+}
+
+#loginBtn{
+    margin-right: 5px;
+}
+
+#todosBtn{
+    margin-left: 5px;
+}
+
